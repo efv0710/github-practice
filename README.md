@@ -1,9 +1,11 @@
 ```mermaid
-stateDiagram-v2
+stateDiagram
+    direction LR
     [*] --> Waiting
-    Waiting --> Incomplete
+    Waiting --> Processing
+    Processing --> Successful
     state Processing {
+        direction LR
         Incomplete --> Complete
     }
-    Complete --> Successful
-    Complete --> Failed
+    Processing --> Failed
